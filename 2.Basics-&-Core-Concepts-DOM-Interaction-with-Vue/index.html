@@ -21,6 +21,10 @@
       <button @click="add(10)">Add 10</button>
       <button @click="reduce(5)">Remove 5</button>
       <p>Result: {{ counter }}</p>
+        <!-- when you point out a function an argument is also passed by default in JS
+       <input v-on:input="setName" type="text"> -->
+        <input v-on:input="setName($event, 'Ali')" type="text"> <!-- when you pass an argument to get default argument you can use $event to achieve it -->
+        <p>Your Name: {{ name }}</p>
     </section>
   </body>
 </html>
