@@ -8,19 +8,19 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Vue Course Goals</h1>
+      <h1>Vue Events</h1>
     </header>
-    <section id="user-goal">
-      <h2>My Course Goal</h2>
-      <p v-html="outputGoal()"></p>
-      <p> Learn More About <a v-bind:href="vueLink">VUE</a></p>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button @click="counter++">Add</button>
+      <button @click="counter--">Remove</button>
+      <p>Result: {{ counter }}</p>
     </section>
   </body>
 </html>
