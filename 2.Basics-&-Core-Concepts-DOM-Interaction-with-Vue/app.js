@@ -5,6 +5,15 @@ const app = Vue.createApp({
       name: "",
     };
   },
+  computed: {
+    fullName() {
+      console.log("Running Again!...");
+      if (this.name === "") {
+        return "";
+      }
+      return this.name + " " + "Ali";
+    },
+  },
   methods: {
     /* when you point out a function an argument is also passed by default in JS
     setName(event){
