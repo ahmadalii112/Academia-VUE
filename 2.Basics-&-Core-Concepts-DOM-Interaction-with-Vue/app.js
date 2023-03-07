@@ -10,6 +10,13 @@ const app = Vue.createApp({
     setName(event){
         this.name = event.target.value;
       },*/
+    outputFullName() {
+      console.log("Running Again!...");
+      if (this.name === "") {
+        return "";
+      }
+      return this.name + " " + "Ali";
+    },
     setName(event) {
       this.name = `${event.target.value}`;
     },
