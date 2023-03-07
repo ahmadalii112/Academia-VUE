@@ -24,12 +24,11 @@
       <p>Result: {{ counter }}</p>
         <!-- when you point out a function an argument is also passed by default in JS
        <input v-on:input="setName" type="text"> -->
-        <input v-on:input="setName($event, 'Ali')" v-on:keyup.enter="confirmInput" type="text"> <!-- when you pass an argument to get default argument you can use $event to achieve it -->
-        <p>Your Name: {{ confirmedName }}</p>
-        <form @submit.prevent="submitForm">
-            <input type="text">
-            <button>Sign Up</button>
-        </form>
+        <input v-on:input="setName" v-bind:value="name"  v-on:keyup.enter="confirmInput" type="text">
+        <!-- Data Binding + Event Binding = Two way binding  -->
+        <input type="text" v-model="name"> <!-- its a shortcut of v-bind:value and v-on:input-->
+        <p>Your Name: {{ name }}</p>
+        <button @click="resetInput">Reset Input</button>
     </section>
   </body>
 </html>
