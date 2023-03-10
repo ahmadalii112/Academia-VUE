@@ -4,13 +4,13 @@ const app = Vue.createApp({
       counter: 10,
       name: "", // Whenever Name Changes The Watcher Method will Re-Execute
       lastName: "",
-      fullName: "",
+      // fullName: "",
     };
   },
   // You repeat data and computed property name as a method Name
   watch: {
     // name(newValue, OldValue)
-    name(value) {
+   /* name(value) {
       if (value === "") {
         this.fullName =  "";
       }else {
@@ -23,16 +23,16 @@ const app = Vue.createApp({
       }else {
         this.fullName = this.name + ' ' + value
       }
-    }
+    }*/
   },
   computed: {
-    /*fullName() {
+    fullName() {
       console.log("Running Again!...");
-      if (this.name === "") {
+      if (this.name === "" || this.lastName === "") {
         return "";
       }
-      return this.name + " " + "Ali";
-    },*/
+      return this.name + " " + this.lastName;
+    },
   },
   methods: {
     /* when you point out a function an argument is also passed by default in JS
