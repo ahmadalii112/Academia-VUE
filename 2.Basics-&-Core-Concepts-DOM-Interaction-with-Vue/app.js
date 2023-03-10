@@ -9,6 +9,15 @@ const app = Vue.createApp({
   },
   // You repeat data and computed property name as a method Name
   watch: {
+    // watchers shines for these kind of behaviours we want
+    counter(value){
+      if (value >= 50 || value <= 0) {
+        const that = this;
+        setTimeout(function (){
+         that.counter = 0;
+        }, 2000)
+      }
+    }
     // name(newValue, OldValue)
    /* name(value) {
       if (value === "") {
