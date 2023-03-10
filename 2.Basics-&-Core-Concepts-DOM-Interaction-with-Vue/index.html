@@ -23,6 +23,7 @@
       <p v-once>Starting Counter Value: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
         <input type="text" v-model="name"> <!-- its a shortcut of v-bind:value and v-on:input-->
+        <input type="text" v-model="lastName">
         <p>Your Name: {{ fullName }}</p>
         <button @click="resetInput">Reset Input</button>
     </section>

@@ -3,6 +3,7 @@ const app = Vue.createApp({
     return {
       counter: 10,
       name: "", // Whenever Name Changes The Watcher Method will Re-Execute
+      lastName: "",
       fullName: "",
     };
   },
@@ -13,7 +14,14 @@ const app = Vue.createApp({
       if (value === "") {
         this.fullName =  "";
       }else {
-        this.fullName = value + ' ' + "Ali"
+        this.fullName = value + ' ' + this.lastName
+      }
+    },
+    lastName(value){
+      if (value === "") {
+        this.fullName =  "";
+      }else {
+        this.fullName = this.name + ' ' + value
       }
     }
   },
