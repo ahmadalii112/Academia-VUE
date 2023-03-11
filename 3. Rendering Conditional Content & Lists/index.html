@@ -20,8 +20,12 @@
       <h2>My course goals</h2>
       <input v-model="enteredGoalValue" type="text" />
       <button @click="addGoal">Add Goal</button>
-      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
-      <ul  v-else-if="goals.length > 0">
+        <!--
+          v-if removes element from the dom
+          v-show add style of display: none to the element (not removed just hide)
+                -->
+      <p v-show="goals.length === 0">No goals have been added yet - please start adding some!</p>
+      <ul  v-show="goals.length > 0">
         <li>Goal</li>
       </ul>
     </section>
