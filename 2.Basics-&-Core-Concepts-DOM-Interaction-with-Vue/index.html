@@ -21,7 +21,7 @@
       <div :class="boxASelected ? 'demo active' : 'demo' "  @click="boxSelected('A')"></div>
       <div :class="{demo: true, active: boxASelected}"  @click="boxSelected('A')"></div>
       -->
-      <div class="demo" :class="{active: boxASelected}"  @click="boxSelected('A')"></div>
+      <div class="demo" :class="boxAClasses"  @click="boxSelected('A')"></div>
       <div class="demo" :class="{active: boxBSelected}" @click="boxSelected('B')"></div>
       <div class="demo" :class="{active: boxCSelected}" @click="boxSelected('C')"></div>
     </section>
