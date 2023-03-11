@@ -1,20 +1,19 @@
 const app = Vue.createApp({
   data() {
     return {
-      enteredUser: '',
+      inputClass: '',
       enterInput: '',
       isVisible: true,
     }
   },
   computed: {
-    visible(){
-      return this.isVisible === true ? 'visible' : 'hidden'
-    },
-    userClass() {
-      if (this.enteredUser === 'Ahmad') {
-        return {user1: true}
-      } else if (this.enteredUser === 'Ali') {
-        return {user2: true}
+    paraClasses() {
+      //syntax  '{className: True ?? false}'
+      return {
+        user1: this.inputClass === 'user1',
+        user2: this.inputClass === 'user2',
+        visible: this.isVisible,
+        hidden: !this.isVisible,
       }
     },
   }, methods: {
