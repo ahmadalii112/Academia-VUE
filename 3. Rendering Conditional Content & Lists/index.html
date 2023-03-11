@@ -24,9 +24,11 @@
       <ul  v-else="goals.length > 0">
         <li
             v-for="(goal, arrayIndex) in goals"
+            :key="goal"
             @click="removeGoal(arrayIndex)"
         >
-            {{ goal }} - {{ arrayIndex}}
+            <p>{{ goal }} - {{ arrayIndex}}</p>
+            <input type="text" @click.stop> <!-- to avoid removeGoal function for this input after clicking-->
         </li>
       </ul>
         <!--
