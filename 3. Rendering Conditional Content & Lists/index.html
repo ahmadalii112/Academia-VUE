@@ -22,10 +22,22 @@
       <button @click="addGoal">Add Goal</button>
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul  v-else="goals.length > 0">
-        <li v-for="goal in goals">
-            {{ goal }}
+        <li v-for="(goal, arrayIndex) in goals">
+            {{ goal }} - {{ arrayIndex}}
         </li>
       </ul>
+        <!--
+        TODO: How to use v-for in objects
+        <ul>
+            <li v-for="(value, key, index) in person">
+                {{ key }}:  {{ value }} - {{ index}}
+            </li>
+        </ul>
+       TODO: you can also looping in numbers
+       <ul>
+            <li v-for="num in 10">{{num }}</li>
+        </ul>
+        -->
     </section>
   </body>
 </html>
