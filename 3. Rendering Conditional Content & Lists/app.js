@@ -2,7 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       enteredGoalValue: '',
-      goals: [],
+      goals: ["learn Vue", "Master Vue", "Finish The Course"],
       person: {
         'Name': 'Ahmad',
         'Age': 25,
@@ -12,8 +12,14 @@ const app = Vue.createApp({
   },
   methods: {
     addGoal() {
+      if (this.enteredGoalValue === '') {
+        return;
+      }
       this.goals.unshift(this.enteredGoalValue)
       this.enteredGoalValue = ''
+    },
+    removeGoal(idx) {
+      this.goals.splice(idx, 1);
     }
   }
 });
