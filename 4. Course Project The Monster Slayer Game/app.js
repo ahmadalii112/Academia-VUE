@@ -8,6 +8,7 @@ const app = Vue.createApp({
     return {
       monsterHealth: 100,
       playerHealth: 100,
+      currentRound: 0
     }
   },
   computed: {
@@ -17,6 +18,9 @@ const app = Vue.createApp({
     playerBarStyles() {
       return {width: this.playerHealth + '%'}
     },
+    mayUseSpecialAttack(){
+      return this.currentRound % 3 !== 0
+    }
   },
   methods: {
     attackMonster() {
@@ -25,6 +29,7 @@ const app = Vue.createApp({
        calculate the damage we're dealing,  we deal 5 to 12 point of damage so he formula is 👇
        decimalValue(randomNumber * (maxValue - minValue) + minValue)
       */
+      this.currentRound++
       // const attackValue = Math.floor(Math.random() * (12 - 5)) + 5
       const attackValue = getRandomValue(5, 12)
       this.monsterHealth = this.monsterHealth - attackValue;
@@ -35,6 +40,13 @@ const app = Vue.createApp({
       const attackValue = getRandomValue(8, 15)
       this.playerHealth -= attackValue;
 
+    },
+    specialAttackMonster(){
+      this.currentRound++
+      // It can only be available every three round if it is not available button should be disabled
+      const attackValue = getRandomValue(10, 25)
+      this.monsterHealth = this.monsterHealth - attackValue;
+      this.attackPlayer();
     }
   },
 });
