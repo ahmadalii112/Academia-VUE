@@ -1,30 +1,38 @@
 <template>
   <li>
-    <h2>{{ friend.name }}</h2>
-    <button @click="toggleDetails">Show Details</button>
+    <h2>{{ name }} {{ friendIsFavorite === "1" ? '(Favorite)' : '' }}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
+    <button @click="toggleDetails">{{ detailsVisible ? 'Hide' : 'Show Details' }}</button>
     <ul v-if="detailsVisible">
-      <li><strong>Phone:</strong>{{ friend.phone }}</li>
-      <li><strong>Email:</strong>{{ friend.email }}</li>
+      <li><strong>Phone:</strong>{{ phoneNumber }}</li>
+      <li><strong>Email:</strong>{{ emailAddress }}</li>
     </ul>
   </li>
 </template>
 <script>
 export default {
   name: 'friend-contact',
+  props: [
+    "name",
+    "emailAddress",
+    "phoneNumber",
+    "isFavorite",
+  ],
   data() {
     return {
       detailsVisible: false,
-      friend: {
-        id: "jin",
-        name: "Jin Kazama",
-        phone: '0321 5214569',
-        email: 'jin.kazama@tekken.com',
-      },
+      friendIsFavorite: this.isFavorite // we cannot mutate props in child that's why we set prop value to initial value in child component and then change my data property
     }
   },
   methods: {
     toggleDetails() {
       this.detailsVisible = !this.detailsVisible;
+    },
+    toggleFavorite() {
+      this.friendIsFavorite =
+          (this.friendIsFavorite === "1")
+              ? "0"
+              : "1"
     }
   },
 }

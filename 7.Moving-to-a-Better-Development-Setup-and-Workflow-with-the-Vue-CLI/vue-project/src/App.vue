@@ -1,10 +1,16 @@
 <template>
   <header><h1>Tekken 7 Characters</h1></header>
   <section>
-    <ul>
-      <FriendContact/>
-      <FriendContact/>
-    </ul>
+      <FriendContact
+          name="Ahmad Ali"
+          email-address="ahmad@localhost.com"
+          phone-number="03464569645"
+          is-favorite="0"/>
+      <FriendContact
+          name="Aiman Ali"
+          email-address="aiman@localhost.com"
+          phone-number="03464569645"
+          is-favorite="1"/>
   </section>
 </template>
 
