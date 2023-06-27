@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFavorite ? '(Favorite)' : '' }}</h2>
+    <h2>{{ name }} {{ isFavorite ? '(Favorite)' : '' }}</h2>
     <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">{{ detailsVisible ? 'Hide' : 'Show Details' }}</button>
     <ul v-if="detailsVisible">
@@ -14,6 +14,10 @@ export default {
   name: 'friend-contact',
   // props: ["name", "emailAddress", "phoneNumber", "isFavorite",],
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -38,7 +42,6 @@ export default {
   data() {
     return {
       detailsVisible: false,
-      friendIsFavorite: this.isFavorite // we cannot mutate props in child that's why we set prop value to initial value in child component and then change my data property
     }
   },
   methods: {
@@ -46,7 +49,9 @@ export default {
       this.detailsVisible = !this.detailsVisible;
     },
     toggleFavorite() {
-      this.friendIsFavorite = !this.friendIsFavorite
+      // this.friendIsFavorite = !this.friendIsFavorite
+      // Now we are emit an event
+      this.$emit('toggle-favorite' , this.id)
     }
   },
 }
