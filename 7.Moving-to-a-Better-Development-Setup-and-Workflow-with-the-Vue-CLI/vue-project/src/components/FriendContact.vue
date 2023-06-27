@@ -38,6 +38,18 @@ export default {
       //   return value === "1" || value === "0";
       // }
     },
+    emits: ['toggle-favorite'],
+    // Or we validate events like this
+    // emits: {
+    //   'toggle-favorite': function (id) {
+    //     if (id) {
+    //       return true;
+    //     }else {
+    //       console.warn("Id is Missing");
+    //       return false
+    //     }
+    //   }
+    // },
   },
   data() {
     return {
