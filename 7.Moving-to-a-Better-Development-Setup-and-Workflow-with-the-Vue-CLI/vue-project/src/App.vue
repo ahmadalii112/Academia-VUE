@@ -1,13 +1,13 @@
 <template>
   <h2>Tekken 7 Characters</h2>
-  <ul>
-    <li></li>
-  </ul>
+  <FriendContact/>
 </template>
 
 <script>
+import FriendContact from "@/components/FriendContact.vue";
 export default {
   name: "App",
+  components: {FriendContact},
   data() {
     return {
       friends: [
