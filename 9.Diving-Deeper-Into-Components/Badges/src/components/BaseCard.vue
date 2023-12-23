@@ -1,13 +1,18 @@
 <template>
     <div>
-        <header>
-            <slot name="header"></slot>
+        <header v-if="$slots.header">
+            <slot name="header">
+                <!-- The Default text -->
+            </slot>
         </header>
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
+    mounted() {
+        console.log(this.$slots.header);
+    }
     
 }
 </script>
