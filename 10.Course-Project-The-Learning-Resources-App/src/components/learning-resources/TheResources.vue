@@ -1,16 +1,20 @@
 <template>
-    <BaseCard>
-      <BaseButton @click="setSelectedTab('stored-resources')"
+  <BaseCard>
+    <BaseButton
+      @click="setSelectedTab('stored-resources')"
       :mode="selectedTab === 'stored-resources' ? null : 'flat'"
-        >Stored Resources
-      </BaseButton>
-      <BaseButton @click="setSelectedTab('add-resources')"
+      >Stored Resources
+    </BaseButton>
+    <BaseButton
+      @click="setSelectedTab('add-resources')"
       :mode="selectedTab === 'add-resources' ? null : 'flat'"
-        >Add Resources
-      </BaseButton>
-    </BaseCard>
-    <!-- Add Dymamic Components -->
+      >Add Resources
+    </BaseButton>
+  </BaseCard>
+  <!-- our form value will not disapear -->
+  <keep-alive> 
     <component :is="selectedTab"></component>
+  </keep-alive>
 </template>
 
 <script>
@@ -29,7 +33,7 @@ export default {
           id: 'offical-guide',
           title: 'Official Guide',
           description: 'The Vue Description',
-          link: 'https://vue.org',
+          link: 'https://vuejs.org',
         },
         {
           id: 'google',
@@ -42,12 +46,23 @@ export default {
   },
   provide() {
     return {
-        resources: this.storedResources,
-    }
+      resources: this.storedResources,
+      addResource: this.addResource, // point out the method 👇🏻
+    };
   },
   methods: {
     setSelectedTab(selectedTab) {
       this.selectedTab = selectedTab;
+    },
+    addResource(title, description, link) {
+      const newResource = {
+        id: new Date().toISOString(),
+        title: title,
+        description: description,
+        link: link,
+      };
+      this.storedResources.unshift(newResource);
+      this.selectedTab = 'stored-resources';
     },
   },
 };
