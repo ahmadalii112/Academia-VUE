@@ -1,33 +1,21 @@
 <template>
   <div>
     <TheHeader title="Ahmad"></TheHeader>
+    <TheResources></TheResources>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/layouts/TheHeader.vue';
+import TheResources from './components/learning-resources/TheResources.vue';
 
 export default {
   components: {
     TheHeader,
+    TheResources,
   },
   data() {
-    return {
-      storedResources: [
-        {
-          id: 'offical-guide',
-          title: 'Official Guide',
-          description: 'The Vue Description',
-          link: 'https://vue.org',
-        },
-        {
-          id: 'google',
-          title: 'Google',
-          description: 'The Google Description',
-          link: 'https://www.google.com',
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>
