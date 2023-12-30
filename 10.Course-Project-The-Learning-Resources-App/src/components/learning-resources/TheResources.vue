@@ -12,7 +12,7 @@
     </BaseButton>
   </BaseCard>
   <!-- our form value will not disapear -->
-  <keep-alive> 
+  <keep-alive>
     <component :is="selectedTab"></component>
   </keep-alive>
 </template>
@@ -48,6 +48,7 @@ export default {
     return {
       resources: this.storedResources,
       addResource: this.addResource, // point out the method 👇🏻
+      deleteResource: this.removeResource, // point out the method 👇🏻
     };
   },
   methods: {
@@ -63,6 +64,10 @@ export default {
       };
       this.storedResources.unshift(newResource);
       this.selectedTab = 'stored-resources';
+    },
+    removeResource(resId) {
+      const resIndex = this.storedResources.findIndex( res => res.id === resId);
+      this.storedResources.splice(resIndex, 1); // The splice() method adds and/or removes array elements.
     },
   },
 };
